@@ -1,38 +1,149 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  height: 70px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 20px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.spinner {
+  height: 80px;
+  margin: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.App-intro {
+  font-size: large;
+}
+
+.musics {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.App-header h2 {
+  margin: 0;
+}
+
+.add-musics {
+  text-align: center;
+}
+
+.add-musics button {
+  font-size: 16px;
+  padding: 8px;
+  margin: 0 10px 30px 10px;
+}
+
+.music {
+  padding: 5px 25px 10px 25px;
+  max-width: 25%;
+}
+
+.title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.img {
+  border-radius: 4px;
+}
+
+.desc {
+  box-sizing: border-box;
+  padding: 0.2em 20px;
+  position: relative;
+  line-height: 1.4em;
+  /**
+   * 限定3行，超出省略号 
+   * 6行高度 3*1.4 = 4.2
+   * 再加上上下padidng，最大高度4.6
+   */
+  max-height: 4.6em;
+  overflow: hidden;
+  font-size: 12px;
+  box-shadow: 0 0 6px 1px rgba(0,0,0,.8);
+  border-radius: 4px;
+}
+
+/**
+ * 绝对定位，
+ * 使用与本元素一致的背景色覆盖文字，
+ * 用padding对位置与覆盖范围进行控制
+ */
+.desc::after {
+  content: '......';
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+  right:0;
+  padding: 0 20px 1px 10px;
+}
+
+.errorMessage {
+  margin: auto;
+  font-weight: bold;
+  color: rgb(161, 15, 15);
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+input[type="submit"] {
+  padding: 5px;
+  background-color: transparent;
+  color: black;
+  border: 1px solid black;
+  width: 80px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #282c34;
+  color: antiquewhite;
+}
+
+.search > input[type="text"]{
+  width: 40%;
+  min-width: 170px;
+}
+
+@media screen and (min-width: 694px) and (max-width: 915px) {
+  .music {
+    max-width: 33%;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media screen and (min-width: 652px) and (max-width: 693px) {
+  .music {
+    max-width: 50%;
+  }
+}
+
+
+@media screen and (max-width: 651px) {
+  .music {
+    max-width: 100%;
+    margin: auto;
   }
 }
