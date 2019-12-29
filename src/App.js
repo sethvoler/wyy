@@ -49,9 +49,9 @@ const App = () => {
   const [errMsg, setErrMsg] = useState(null); */
   /**
    * hooks useReducer
-   * 接受三个参数，本例只用了两个参数
+   * 接受两个参数
    *   第一个reducer，与Redux中的reducer雷同
-   *   第二个是一个数组，在该数组中传入一个值，如果该值改变将调用
+   *   第二个是state的初始值
    */
   // 使用useReducer重写
   const [state, dispatch] = useReducer(reducer, initialState);
